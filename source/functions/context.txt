@@ -34,10 +34,10 @@ The ``context`` variable contains the following modules:
        configured.
 
    * - ``context.values``
-     - Access :doc:`values </values>` that you've defined.
+     - Access :doc:`values </values-and-secrets>` that you've defined.
 
    * - ``context.user``
-     - Access information about the :doc:`user </users>` that initiated
+     - Access information about the :doc:`user </authentication>` that initiated
        the request.
 
    * - ``context.request``
@@ -45,7 +45,7 @@ The ``context`` variable contains the following modules:
        call.
 
    * - ``context.functions``
-     - Execute other functions in your Realm application.
+     - Execute other functions in your {+app+}.
 
    * - ``context.http``
      - Access the HTTP service for ``get``, ``post``, ``put``, ``patch``,
@@ -80,10 +80,10 @@ service as methods.
       * - ``serviceName``
         - string
         - The unique name of the service assigned when the
-          :doc:`service was created </services/create-a-service>`.
+          :doc:`service was created </services/configure/services>`.
 
           You can find the name of the Service associated with a
-          particular external service or linked cluster in the Realm UI
+          particular external service or linked cluster in the {+ui+}
           or in an exported application directory:
 
           .. list-table::
@@ -103,7 +103,7 @@ service as methods.
              :class: note
              
              The default name for the :doc:`MongoDB Service </mongodb>`
-             associated with a Realm application's initial linked
+             associated with a {+app+}'s initial linked
              cluster is ``mongodb-atlas``.
 
 .. _context-functions:
@@ -142,7 +142,7 @@ your application.
 context.values
 ~~~~~~~~~~~~~~
 
-An object that provides access to :doc:`Values </values>` via a "getter"
+An object that provides access to :doc:`Values </values-and-secrets>` via a "getter"
 method.
 
 .. method:: context.values.get(valueName)
@@ -160,7 +160,7 @@ method.
 
       * - ``valueName``
         - string
-        - The name of the :doc:`Value </values>`.
+        - The name of the :doc:`Value </values-and-secrets>`.
 
 .. _context-http:
 
@@ -169,7 +169,7 @@ context.http
 
 A general purpose HTTP client that exposes all :ref:`HTTP service
 actions <http-service-actions>` and is not affected by :doc:`service
-rules </services/define-a-service-rule/>`.
+rules </services/configure/service-rules>`.
 
 .. method:: context.http.get()
    
@@ -282,7 +282,7 @@ function's :ref:`active user <function-active-user>`.
    ``context.user`` always resolves to the authenticated application
    user that called the function, even if the function is a
    :ref:`system function <system-functions>` running without regard for
-   Realm rules. However, some functions are not called by authenticated
+   {+service-short+} rules. However, some functions are not called by authenticated
    users, such as webhook and trigger functions. For these functions,
    ``context.user`` resolves to a system user object that contains no
    data.
@@ -301,8 +301,9 @@ function's :ref:`active user <function-active-user>`.
 .. example::
 
    The following ``context.user`` document reflects an
-   :doc:`Email/Password </authentication/userpass>` user that is
-   associated with a single :ref:`User API Key <user-api-key>`.
+   :doc:`Email/Password </authentication/email-password>`
+   user that is associated with a single :ref:`User API Key
+   <api-key-authentication-user-api-key>`.
 
    .. code-block:: json
 
@@ -403,7 +404,7 @@ determine the origin of the call. It may contain the following fields:
        .. admonition:: Realm Removes The Secret Parameter
           :class: important
 
-          For security reasons, Realm automatically removes any query
+          For security reasons, {+service-short+} automatically removes any query
           string key/value pair where the key is ``secret``. For
           example, if an incoming request has the query string
           ``?secret=hello&someParam=42`` then the ``rawQueryString`` for

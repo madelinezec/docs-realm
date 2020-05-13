@@ -31,10 +31,13 @@ extensions = [
     'mongodb',
     'directives',
     'intermanual',
+    'source_constants',
     # 'fasthtml',
+    'sphinx_openapi',
     'tabs',
     'tab-content',
     'stitch-builders',
+    'icon',
 ]
 
 templates_path = ['.templates']
@@ -57,8 +60,38 @@ rst_epilog = '\n'.join([
     '.. |ent-build| replace:: MongoDB Enterprise',
     '.. |hardlink| replace:: http://docs.mongodb.com/realm/',
     '.. |atlas-full| replace:: MongoDB Atlas',
-    '.. |atlas| replace:: Atlas'
+    '.. |atlas| replace:: Atlas',
+    '.. |compass| replace:: MongoDB Compass',
+    '.. |realm| replace:: realm',
+    '.. |realms| replace:: realms',
+    '.. |realm-cli| replace:: ``realm-cli``',
+    '.. _compass: https://docs.mongodb.com/compass'
 ])
+
+source_constants = {
+    'package-name-org' : 'docs-realm',
+    'realm' : 'realm',
+    'realms' : 'realms',
+    'client-database' : 'Realm Database',
+    'atlas' : 'MongoDB Atlas',
+    'atlas-short' : 'Atlas',
+    'compass' : 'MongoDB Compass',
+    'compass-short' : 'Compass',
+    'charts' : 'MongoDB Charts',
+    'charts-short' : 'Charts',
+    'service' : 'MongoDB Realm', # product (backend + sdks)
+    'service-short' : 'Realm', # use as shorthand, AND as a prefix for features
+    'backend' : 'MongoDB Realm',
+    'backend-short' : 'Realm',
+    'sync' : 'Realm Sync',
+    'sync-short' : 'Sync', # feature/product name, NOT verb
+    'backend-schema' : 'Realm Schema',
+    'frontend-schema' : 'Realm Object Model',
+    'cli-bin' : '``realm-cli``', # binary -- DO NOT USE IN LINKS! Will break them.
+    'cli' : 'Realm CLI',
+    'ui' : 'Realm UI',
+    'app' : 'Realm app'
+}
 
 extlinks = {
     # MongoDB Docs Sites
@@ -69,10 +102,19 @@ extlinks = {
     'mms-home': ('https://cloud.mongodb.com%s', ''),
     'guides': ('https://docs.mongodb.com/guides%s', ''),
     # True External Links
+    'android': ('https://developer.android.com/reference/%s', ''),
     'android-sdk': ('https://docs.mongodb.com/stitch-sdks/java/4/%s', ''),
-    'apollo-docs': ('https://www.apollographql.com/docs%s', ''),
+    'android-dev': ('https://developer.android.com/%s', ''),
+    'apollo-docs': ('https://www.apollographql.com/docs/%s', ''),
+    'apple-dev': ('https://developer.apple.com/documentation/%s', ''),
+    'aws-docs': ('https://docs.aws.amazon.com/%s', ''),
+    'aws-go': ('https://docs.aws.amazon.com/sdk-for-go/api/service/%s', ''),
+    'aws-iam': ('https://docs.aws.amazon.com/IAM/latest/%s', ''),
+    'aws-reference': ('https://docs.aws.amazon.com/general/latest/%s', ''),
+    'codesandbox': ('https://codesandbox.io/%s', ''),
     'gcp': ('https://cloud.google.com/%s', ''),
     'github': ('https://github.com/%s', ''),
+    'github-dev': ('https://developer.github.com/%s', ''),
     'google-dev': ('https://developers.google.com/%s', ''),
     'graphql': ('https://graphql.org/%s', ''),
     'ios-sdk': ('https://docs.mongodb.com/stitch-sdks/swift/6/%s', ''),
@@ -81,21 +123,24 @@ extlinks = {
     'nodejs': ('https://nodejs.org/api/%s', ''),
     'npm': ('https://www.npmjs.com/%s', ''),
     'mdn': ('https://developer.mozilla.org/en-US/docs/%s', ''),
+    'twilio': ('https://www.twilio.com/%s', ''),
     'wikipedia': ('https://en.wikipedia.org/wiki/%s', ''),
+    'aws-docs': ('https://docs.aws.amazon.com/%s', ''),
+    'fcm': ('https://firebase.google.com/docs/%s', ''),
 }
 
 intersphinx_mapping = {}
 
 try:
     for i in intersphinx_libs:
-        intersphinx_mapping[i['name']] = ( i['url'], os.path.join(conf.paths.projectroot,
-                                                              conf.paths.output,
-                                                              i['path']))
+        intersphinx_mapping[i['name']] = (i['url'], os.path.join(conf.paths.projectroot,
+                                                                 conf.paths.output,
+                                                                 i['path']))
 except:
     for i in intersphinx_libs:
-        intersphinx_mapping[i.name] = ( i.url, os.path.join(conf.paths.projectroot,
-                                                              conf.paths.output,
-                                                              i.path))
+        intersphinx_mapping[i.name] = (i.url, os.path.join(conf.paths.projectroot,
+                                                           conf.paths.output,
+                                                           i.path))
 
 
 languages = [

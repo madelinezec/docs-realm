@@ -7,8 +7,9 @@
       └── auth_providers/
           └── <provider name>.json
 
-:ref:`Authentication <realm-authentication>` providers are defined in
-your application's ``/auth_providers`` directory.
+:ref:`Authentication providers <authentication-providers>`
+are defined in your application's ``/auth_providers``
+directory.
 
 Each provider is defined in its own JSON file named after the provider.
 For detailed information on configuring and using a specific
@@ -47,7 +48,7 @@ Configuration
    * - | ``id``
        | String
      - A value that uniquely identifies the authentication
-       provider. Realm automatically generates a unique ID for a
+       provider. {+service-short+} automatically generates a unique ID for a
        provider when you create it.
    
    * - | ``name``
