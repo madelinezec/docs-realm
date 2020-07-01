@@ -1,4 +1,4 @@
-name = "realm"
+name = invalid
 title = "MongoDB Realm"
 
 [constants]
