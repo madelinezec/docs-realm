@@ -2,7 +2,7 @@
 MongoDB Realm
 =============
 
-Welcome to the {+service+} documentation! By Maddie
+Welcome to the {+service+} documentation! By Maddie Z
 
 .. admonition:: Feedback Appreciated
    :class: note
