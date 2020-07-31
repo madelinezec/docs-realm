@@ -16,7 +16,7 @@ Welcome to the {+service+} documentation! By Maddie Z
 Introduction
 ------------
 
-BAR FOO BAR FOO BAR FOO
+BAR FOO BAR FOO BAR FOO BAR
 
 {+service+} is a serverless platform and mobile database. **MongoDB
 Stitch** and **{+client-database+}** are now part of {+service+}. To see
