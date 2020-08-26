@@ -1,8 +1,8 @@
 .. _graphql-api:
 
-==================
-GraphQL API (Beta)
-==================
+===========
+GraphQL API
+===========
 
 .. default-domain:: mongodb
 
@@ -12,6 +12,29 @@ GraphQL API (Beta)
    :depth: 2
    :class: singlecol
 
+.. toctree::
+   :titlesonly:
+   :caption: Configure GraphQL
+   :hidden:
+   
+   Expose Data in a Collection </graphql/expose-data>
+   Define a Custom Resolver </graphql/custom-resolvers>
+
+.. toctree::
+   :titlesonly:
+   :caption: Use GraphQL
+   :hidden:
+   
+   Authenticate GraphQL Requests </graphql/authenticate>
+   Run GraphQL Operations from a CLI </graphql/cli>
+
+.. toctree::
+   :titlesonly:
+   :caption: Reference
+   :hidden:
+   
+   GraphQL Types, Resolvers, and Operators </graphql/types-and-resolvers>
+
 Overview
 --------
 
@@ -20,13 +43,12 @@ Overview
 
    GraphQL requires MongoDB version 4.0 or greater.
 
-The {+service+} :graphql:`GraphQL <>` API (Beta Release) allows client
-applications to access data stored in a linked MongoDB cluster using any
-standard GraphQL client. {+service-short+} automatically creates GraphQL types for
-every linked collection that has a defined :doc:`document schema
-</mongodb/enforce-a-document-schema>` and evaluates :doc:`role-based
-permissions </mongodb/define-roles-and-permissions>` for all GraphQL
-requests.
+The {+service+} :graphql:`GraphQL <>` API allows client applications to access
+data stored in a linked MongoDB cluster using any standard GraphQL client.
+{+service-short+} automatically creates GraphQL types for every linked
+collection that has a defined :doc:`document schema
+</mongodb/enforce-a-document-schema>` and evaluates :doc:`role-based permissions
+</mongodb/define-roles-and-permissions>` for all GraphQL requests.
 
 .. admonition:: Create an Atlas Cluster for Free
    :class: note
@@ -50,8 +72,6 @@ To learn about the types and operations that you can use with the {+service-shor
 GraphQL API, see :doc:`GraphQL Types & Resolvers
 </graphql/types-and-resolvers>`.
 
-.. include:: /graphql/note-temporary-graphql-limitations.rst
-
 Why GraphQL?
 ------------
 
@@ -62,6 +82,14 @@ circumvents the need for multiple costly round trips to the server.
 
 To learn more about GraphQL, check out the :graphql:`official GraphQL
 tutorial <learn>`.
+
+Limitations
+-----------
+
+- The GraphQL API can process a maximum of ten resolvers for a given query or
+  mutation. If an operation specifies more than ten resolvers, the entire
+  operation will fail with the error message ``"max number of queries
+  reached"``.
 
 GraphQL Operations
 ------------------
@@ -87,7 +115,7 @@ For more information and examples, including a list of all automatically
 generated query types, see :ref:`Query Resolvers
 <graphql-query-resolvers>`.
 
-.. code-block:: text
+.. code-block:: graphql
 
    # Find a single movie by name
    query {
@@ -136,10 +164,7 @@ For more information and examples, including a list of all automatically
 generated mutation types, see :ref:`Mutation Resolvers
 <graphql-mutation-resolvers>`.
 
-For an example of how to run a mutation from a client application, see
-:ref:`Run a GraphQL Mutation <grapqhl-run-a-mutation>`.
-
-.. code-block:: text
+.. code-block:: graphql
 
    # Insert a new movie
    mutation {

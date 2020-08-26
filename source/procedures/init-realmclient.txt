@@ -1,9 +1,0 @@
-.. _init-appclient:
-
-==============================
-Initialize the RealmAppClient
-==============================
-
-.. default-domain:: mongodb
-
-TODO

@@ -12,10 +12,11 @@ TypeScript applications.
 
 .. note::
 
-   The Node.js SDK does not support JavaScript or TypeScript applications
-   written for web browsers or React Native mobile apps. For those use
-   cases, you should consider the :ref:`Browser SDK <browser-intro>` and
-   the :ref:`React Native SDK <react-native-intro>`.
+   The Node.js SDK does not support JavaScript or TypeScript
+   applications written for web browsers. For that use case, you should
+   consider the :ref:`Web SDK <web-intro>`. For development in React
+   Native, refer to the :ref:`React Native SDK <react-native-intro>`
+   documentation.
 
 Installation
 ------------
@@ -23,6 +24,12 @@ Installation
 To learn how to add the {+service+} Node.js SDK library as a dependency
 to your application, see :ref:`Install Realm for Node.js
 <node-install>`.
+
+Get Started
+-----------
+
+To get started quickly with some JavaScript or TypeScript code, see the :ref:`Quick Start
+<node-client-quick-start>`.
 
 The Realm Data Model
 --------------------
@@ -62,10 +69,24 @@ Webhooks, {+sync+}, and built-in third-party authentication.
 
 To learn how to connect to a {+backend+} app to call
 Functions, query data in an instance of {+atlas+}, and synchronize data
-in {+realms+}, see :doc:`Call a Function </functions/call-a-function>`.
+in {+realms+}, see :ref:`Call a Function <node-call-a-function>`.
+
+To learn how to incorporate user authentication  within your {+backend+}
+app, see :ref:`Authentication <node-authenticate>`.
 
 To learn how to handle schema updates in your client application, see
 :ref:`Migrations <node-client-migrations>`.
+
+To learn how to query for data in MongoDB with the Node.js SDK, see :ref:`
+MongoDB Data Access <node-mongodb-data-access>`.  
+
+.. toctree::
+   :titlesonly:
+   :caption: Get Started
+   :hidden:
+
+   Install Realm for Node.js </node/install>
+   Quick Start </node/quick-start>
 
 .. toctree::
    :titlesonly:
@@ -75,7 +96,9 @@ To learn how to handle schema updates in your client application, see
    Collections </node/collections>
    Notifications </node/notifications>
    Realms </node/realms>
+   Open and Close a Realm </node/open-a-realm>
    Objects </node/objects>
+   Embedded Objects </node/embedded-objects>
    Relationships </node/relationships>
 
 .. toctree::
@@ -92,7 +115,14 @@ To learn how to handle schema updates in your client application, see
    :caption: Work with MongoDB Realm
    :hidden:
 
-   Call a Function </functions/call-a-function>
+   Authenticate a User </node/authenticate>
+   Manage Email/Password Users </node/manage-email-password-users>
+   Create & Manage User API Keys </node/create-manage-api-keys>
+   Work with Multiple Users </node/work-with-multiple-users>
+   Call a Function <node/call-a-function>
+   Sync Data <node/sync-data>
+   MongoDB Data Access <node/mongodb>
+   Access Custom User Data <node/access-custom-user-data>
 
 .. toctree::
    :titlesonly:
@@ -101,3 +131,4 @@ To learn how to handle schema updates in your client application, see
 
    Migrations </node/migrations>
    Auxiliary Files </node/auxiliary-files>
+   SDK Reference Manual <https://docs.mongodb.com/realm-sdks/js/>

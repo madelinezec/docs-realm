@@ -17,9 +17,10 @@ applications.
 .. note::
 
    The React Native SDK does not support JavaScript or TypeScript
-   applications written for web browsers or the Node.js environment. For
-   those use cases, you should consider the :ref:`Browser SDK
-   <browser-intro>` and the :ref:`Node.js SDK <node-intro>`.
+   applications written for web browsers. For that use case, you should
+   consider the :ref:`Web SDK <web-intro>`. For development on Node.js
+   without React, refer to the :ref:`Node.js SDK <node-intro>`
+   documentation.
 
 Installation
 ------------
@@ -27,6 +28,13 @@ Installation
 To learn how to add the {+service+} React Native SDK library as a dependency
 to your application, see
 :ref:`Install Realm for React Native <react-native-install>`.
+
+Get Started
+-----------
+
+To get started quickly with some JavaScript or TypeScript code, see the :ref:`Quick Start
+<react-native-client-quick-start>`.
+
 
 The Realm Data Model
 --------------------
@@ -60,7 +68,7 @@ For information about how to react to changes in {+realm+} data, see
 Work with MongoDB Realm
 -----------------------
 
-The React native SDK also connects your {+service-short+} client
+The React Native SDK also connects your {+service-short+} client
 application with your {+app+}'s backend services, including Functions,
 Services, Webhooks, {+sync+}, and built-in third-party authentication.
 
@@ -69,10 +77,21 @@ To get connected to your {+backend+} app, see
 
 To learn how to connect to a {+backend+} app to call
 Functions, query data in an instance of {+atlas+}, and synchronize data
-in {+realms+}, see :doc:`Call a Function </functions/call-a-function>`.
+in {+realms+}, see :ref:`Call a Function <react-native-call-a-function>`.
 
 To learn how to handle schema updates in your client application, see
 :ref:`Migrations <react-native-client-migrations>`.
+
+To learn how to query for data in MongoDB with the React Native SDK, see :ref:`
+MongoDB Data Access <react-native-mongodb-data-access>`.
+
+.. toctree::
+   :titlesonly:
+   :caption: Get Started
+   :hidden:
+
+   Install Realm for React Native </react-native/install>
+   Quick Start </react-native/quick-start>
 
 .. toctree::
    :titlesonly:
@@ -82,7 +101,9 @@ To learn how to handle schema updates in your client application, see
    Collections </react-native/collections>
    Notifications </react-native/notifications>
    Realms </react-native/realms>
+   Open and Close a Realm </react-native/open-a-realm>
    Objects </react-native/objects>
+   Embedded Objects </react-native/embedded-objects>
    Relationships </react-native/relationships>
 
 .. toctree::
@@ -99,8 +120,14 @@ To learn how to handle schema updates in your client application, see
    :caption: Work with MongoDB Realm
    :hidden:
 
-   Call a Function </functions/call-a-function>
-   Initialize the RealmAppClient </procedures/init-realmclient>
+   Authenticate a User </react-native/authenticate>
+   Manage Email/Password Users </react-native/manage-email-password-users>
+   Create & Manage User API Keys </node/create-manage-api-keys>
+   Work with Multiple Users </react-native/work-with-multiple-users>
+   Call a Function </react-native/call-a-function-from-react-native>
+   Sync Data </react-native/sync-data>
+   MongoDB Data Access <react-native/mongodb>
+   Access Custom User Data <react-native/access-custom-user-data>
 
 .. toctree::
    :titlesonly:
@@ -109,3 +136,4 @@ To learn how to handle schema updates in your client application, see
 
    Migrations </react-native/migrations>
    Auxiliary Files </react-native/auxiliary-files>
+   SDK Reference Manual <https://docs.mongodb.com/realm-sdks/js/>

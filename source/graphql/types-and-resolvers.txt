@@ -78,6 +78,23 @@ is specified.
      cast: [String!]
    }
 
+.. _graphql-field-mapping:
+
+Field Mapping
+~~~~~~~~~~~~~
+
+{+service-short+} attempts to map fields in your collection schema directly to
+fields in your GraphQL types. The `definition of valid names
+<https://spec.graphql.org/June2018/#sec-Names>`__ described in the GraphQL spec
+does not support all possible valid document field names, so {+service-short+}
+applies the following transformation rules to determine field names in generated
+GraphQL types:
+
+- strip unsupported characters
+- strip leading numbers
+- convert to camel case
+- omit fields that begin with a double underscore (e.g. ``__myField``)
+
 .. _graphql-bson-type-mapping:
 
 BSON Type Mapping
@@ -581,30 +598,6 @@ direction, either ``ASC`` or ``DESC``.
         title
       }
 
-.. _graphql-default-payload:
-
-Custom Resolver Default Payload
--------------------------------
-
-If a :doc:`custom query or mutation </graphql/custom-resolvers>` does
-not define a :guilabel:`Payload Type`, Realm returns a
-``DefaultPayload`` that has the following signature:
-
-.. code-block:: graphql
-   
-   type DefaultPayload {
-     status: String!
-   }
-
-The ``status`` field will always resolve to ``"complete"`` regardless of
-the resolver function's return value.
-
-.. code-block:: graphql
-   
-   {
-     status: "complete"
-   }
-
 .. _graphql-query-resolvers:
 
 Query Resolvers
@@ -705,7 +698,7 @@ accepts the following parameters:
        combines the field name and the sort direction. For example:
        
        - to sort by title from A to Z you would use ``TITLE_ASC``
-       - to sory by rating from highest to lowest you would use ``RATING_DESC``
+       - to sort by rating from highest to lowest you would use ``RATING_DESC``
 
        If you do not specify a ``sortBy`` argument then the query
        operation does not guarantee the order of documents in the result

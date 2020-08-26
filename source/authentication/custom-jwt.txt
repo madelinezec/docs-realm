@@ -117,7 +117,7 @@ value, then you can configure the provider to use that value instead.
       :guilabel:`Audience` input:
 
       .. cssclass:: bordered-figure
-      .. figure:: /images/custom-token-audience.png
+      .. figure:: /images/custom-jwt-audience.png
          :alt: The Custom JWT audience configuration input
 
    .. tab::
@@ -377,7 +377,7 @@ fields in the ``data`` object of the :doc:`user object </authentication>`.
      - Optional. A name for the field in the user object's ``data``
        document that exposes the metadata field value. If not specified,
        this defaults to the same name as the JWT field that contains the
-       value. The metadata field name may not contain no more than 64
+       value. The metadata field name may contain a maximum of 64
        characters.
 
        .. tab-content:: tabs-realm-admin-interfaces
@@ -464,36 +464,11 @@ fields in the ``data`` object of the :doc:`user object </authentication>`.
         ]
       }
 
-.. _custom-jwt-authentication-usage:
-
-Usage
------
-
-.. _custom-jwt-authentication-usage-authenticate-a-user:
-
-Authenticate a User
-~~~~~~~~~~~~~~~~~~~
-
-.. tabs-realm-sdks::
-
-   tabs:
-     - id: javascript
-       content: |
-         TBD
-
-     - id: android
-       content: |
-         TBD
-
-     - id: ios
-       content: |
-         TBD
-
-.. _custom-jwt-authentication-usage-jwt:
+.. _custom-jwt-authentication-jwt:
 .. _json-web-tokens:
 
 JSON Web Tokens
-~~~~~~~~~~~~~~~
+---------------
 
 The external authentication system must return a `JSON web token
 <https://jwt.io/introduction/>`_ that uniquely identifies the
@@ -506,10 +481,10 @@ parts: a header, a payload and a signature and has the following form:
 
    <header>.<payload>.<signature>
 
-.. _custom-jwt-authentication-usage-jwt-header:
+.. _custom-jwt-authentication-jwt-header:
 
-Header
-++++++
+JWT Header
+~~~~~~~~~~
 
 The header portion of the JWT consists of a ``Base64UrlEncoded``
 document of the following form:
@@ -553,10 +528,10 @@ document of the following form:
      - Required. The type of the token. {+service-short+} expects a JSON web token
        so the value should be ``"JWT"``.
 
-.. _custom-jwt-authentication-usage-jwt-payload:
+.. _custom-jwt-authentication-jwt-payload:
 
-Payload
-+++++++
+JWT Payload
+~~~~~~~~~~~
 
 The payload portion of the JWT consists of a ``Base64UrlEncoded``
 document of the following form:
@@ -628,12 +603,12 @@ document of the following form:
 
 .. _custom-jwt-authentication-usage-jwt-signature:
 
-Signature
-+++++++++
+JWT Signature
+~~~~~~~~~~~~~
 
 The signature portion of the JWT is a hash of the encoded
 token header and payload. To form the signature,
-concatentate the encoded header and payload with a period
+concatenate the encoded header and payload with a period
 and sign the result with the :guilabel:`Signing Key`
 specified in the authentication provider :ref:`configuration
 <custom-jwt-authentication-configuration>` using the hashing
@@ -663,4 +638,3 @@ Summary
 - You can pass custom :ref:`user data
   <custom-jwt-authentication-configuration-metadata-fields>` in your JWT
   that {+service-short+} refreshes whenever the user refreshes their token.
-

@@ -31,53 +31,6 @@ the {+ui+} under the :guilabel:`Dependencies` tab.
 
    Uploaded ``node_modules`` archive files are subject to a ``10MB`` size cap.
 
-.. _builtin-module-support:
-
-Built-In Module Support
------------------------
-
-.. list-table::
-   :header-rows: 1
-   :widths: 50 50
-
-   * - Supported
-     - Unsupported
-
-   * - .. hlist::
-          :columns: 2
-          
-          - ``assert``
-          - ``buffer``
-          - ``crypto``
-          - ``events``
-          - ``fs``
-          - ``http``
-          - ``https``
-          - ``net``
-          - ``stream``
-          - ``timers``
-          - ``tls``
-          - ``url``
-          - ``util``
-          - ``zlib``
-     - .. hlist::
-          :columns: 2
-          
-          - ``child_process``
-          - ``cluster``
-          - ``dgram``
-          - ``dns``
-          - ``domain``
-          - ``os``
-          - ``path``
-          - ``punycode``
-          - ``querystring``
-          - ``readline``
-          - ``string_decoder``
-          - ``tty``
-          - ``v8``
-          - ``vm``
-
 Procedure
 ---------
 

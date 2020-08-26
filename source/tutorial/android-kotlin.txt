@@ -1,0 +1,72 @@
+.. _android-kotlin-tutorial:
+
+=======================
+Android Kotlin Tutorial
+=======================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 2
+   :class: singlecol
+
+Overview
+--------
+
+In this first phase of the tutorial, you will create a task
+tracker app that allows users to:
+
+- Register themselves with email and password.
+- Sign in to their account with their email and password and sign out later.
+- View, create, modify, and delete tasks.
+
+This tutorial should take around 30 minutes.
+
+.. admonition:: Check Out the Quick Start
+   :class: note
+   
+   If you prefer to explore on your own rather than follow a guided tutorial,
+   check out the :ref:`Android Quick Start <android-client-quick-start>`. It
+   includes copyable code examples and the essential information that you need
+   to set up a MongoDB Realm application.
+
+.. admonition:: Download the Complete Source Code
+   :class: note
+   
+   We host this tutorial application's :github:`complete and ready-to-compile
+   source code <mongodb-university/realm-tutorial/tree/main/kotlin-android>` on
+   GitHub. Just follow the instructions in ``README.md`` to get started. Don't
+   forget to update the ``build.gradle`` file with your App ID, which you can
+   find in the {+ui+}.
+
+Prerequisites
+-------------
+
+Before you begin, ensure you have:
+
+- `Android Studio <https://developer.android.com/studio>`__ version 4.0 or higher.
+- An Android emulator for testing.
+- :ref:`Set up the backend <tutorial-task-tracker-create-realm-app>`.
+
+Define Data Access Permissions and Enable Sync
+----------------------------------------------
+
+The backend app is set up with an email/password authentication provider that we
+can use to let users sign up and log in. Now, we need to define sync rules and
+enable sync so that sync clients can read and write objects.
+
+.. include:: /includes/steps/task-tracker-enable-sync.rst
+
+Set Up the Mobile App
+---------------------
+
+.. include:: /includes/steps/tutorial-android-kotlin.rst
+
+What's Next?
+------------
+
+- Read our :ref:`Android SDK <android-intro>` documentation.
+- Join the `MongoDB Developer Hub <https://developer.mongodb.com/community/forums/c/realm/9>`__.
+- Try the :ref:`{+service+} Backend tutorial <backend-tutorial>`.

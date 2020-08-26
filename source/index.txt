@@ -2,20 +2,28 @@
 MongoDB Realm
 =============
 
-Welcome to the **{+service+} Internal Beta** documentation set.
-This documentation is still under active development, and
-lacks many code examples. We also expect the table of
-contents order (left hand navigation) to change both in
-structure and in aesthetic quality.
+Welcome to the {+service+} documentation!
 
-If you find problems with the content, please file a `DOCSP
-ticket
-<https://jira.mongodb.org/secure/CreateIssueDetails!init.jspa?pid=14181&issuetype=4&components=Realm&labels=alpha-docs&priority=3>`__.
+.. admonition:: Feedback Appreciated
+   :class: note
 
-If you find a bug in {+service+}, please file a `REALMC ticket <https://jira.mongodb.org/secure/CreateIssueDetails!init.jspa?pid=14287&issuetype=1&priority=3>`__.
+   While using the documentation, please provide feedback with the
+   feedback form on the bottom right of the page. If you have
+   suggestions for the product itself, please share with us on the
+   `MongoDB Feedback Engine for Realm
+   <https://feedback.mongodb.com/forums/923521-realm/>`_.
 
-Additionally, you can ask questions and make suggestions on
-the internal beta Slack channel, ``#realm-sync-private-beta``.
+Introduction
+------------
+
+{+service+} is a serverless platform and mobile database. **MongoDB
+Stitch** and **{+client-database+}** are now part of {+service+}. To see
+what {+service-short+} can do for you, please read the introduction for
+your use case:
+
+- :doc:`Introduction for Mobile Developers </get-started/introduction-mobile>`
+- :doc:`Introduction for Backend Developers  </get-started/introduction-backend>`
+- :doc:`Introduction for Web Developers </get-started/introduction-web>`
 
 .. toctree::
    :titlesonly:
@@ -26,12 +34,47 @@ the internal beta Slack channel, ``#realm-sync-private-beta``.
    Introduction for Backend Developers  </get-started/introduction-backend>
    Introduction for Web Developers </get-started/introduction-web>
 
+Get Started
+-----------
+
+Build a complete Task Tracker app with multiple clients in our
+:doc:`Create a Task Tracker App </tutorial>` tutorial.
+
+Ready to set up a serverless backend {+app+}? Jump into :doc:`Create a
+MongoDB Realm App </procedures/create-realm-app>` to get started.
+
+.. toctree::
+   :titlesonly:
+   :caption: Tutorial
+   :hidden:
+
+   Create a Task Tracker App </tutorial>
+
 .. toctree::
    :titlesonly:
    :caption: Get Started
    :hidden:
 
-   Create a Realm App </procedures/create-realm-app>
+   Create a MongoDB Realm App </procedures/create-realm-app>
+   Find Your App ID </get-started/find-your-app-id>
+   Create a Realm App with Realm CLI </deploy/create-with-cli>
+
+Cloud Features
+--------------
+
+Each feature of {+service+} has its own section in this documentation.
+Features include:
+
+- :doc:`Users & Authentication </authentication>`
+- :doc:`MongoDB Data Access </mongodb>`
+- :doc:`Sync </sync>`
+- :doc:`GraphQL API </graphql>`
+- :doc:`Functions </functions>`
+- :doc:`Triggers </triggers>`
+- :doc:`Services </services>`
+- :doc:`Static Hosting </hosting>`
+- :doc:`Values & Secrets </values-and-secrets>`
+- :doc:`Application Management </deploy>`
 
 .. toctree::
    :titlesonly:
@@ -40,14 +83,6 @@ the internal beta Slack channel, ``#realm-sync-private-beta``.
    :hidden:
 
    Users & Authentication </authentication>
-   User Objects </authentication/user-objects>
-   Authentication Providers </authentication/providers>
-   Create a User </users/create>
-   Find and View a User </users/find-and-view>
-   Define Custom User Data </users/define-custom-user-data>
-   Work with Multiple Users  </users/work-with-multiple-users>
-   Link a New Identity to a User </authentication/linking>
-   Delete or Prevent Users From Accessing a Realm Application </users/delete-or-revoke>
 
 .. toctree::
    :titlesonly:
@@ -55,27 +90,15 @@ the internal beta Slack channel, ``#realm-sync-private-beta``.
    :hidden:
 
    Overview </mongodb>
-   Link a Cluster </mongodb/link-a-cluster>
-   Document Schemas </mongodb/document-schemas>
-   Enforce a Document Schema </mongodb/enforce-a-document-schema>
-   Filter Incoming Queries </mongodb/filter-incoming-queries>
-   Query Filters </mongodb/query-filters>
-   Service Limitations </mongodb/service-limitations>
-   Enable Wire Protocol Connections </mongodb/enable-wire-protocol-connections>
-   Specify Read Preference for a MongoDB Cluster </mongodb/specify-cluster-read-preference>
-   Query Roles </mongodb/query-roles>
-   Configure Advanced Rules </mongodb/configure-advanced-rules>
-   Define Roles And Permissions </mongodb/define-roles-and-permissions>
 
 .. toctree::
    :titlesonly:
    :caption: Sync
    :hidden:
 
-   Sync Overview  </sync/sync-overview>
-   Define Sync Rules  </sync/rules>
-   Partition Atlas Data into Realms </sync/partitioning>
-   Configure Your Data Model </get-started/configure-your-data-model>
+   Sync Overview </sync/overview>
+   Get Started with Sync </sync>
+   Conflict Resolution </sync/conflict-resolution>
 
 .. toctree::
    :titlesonly:
@@ -83,9 +106,6 @@ the internal beta Slack channel, ``#realm-sync-private-beta``.
    :hidden:
 
    GraphQL API Overview </graphql>
-   Expose Data in a Collection </graphql/expose-data>
-   Define a Custom Query or Mutation </graphql/custom-resolvers>
-   GraphQL Types, Resolvers, and Operators </graphql/types-and-resolvers>
 
 .. toctree::
    :titlesonly:
@@ -93,12 +113,6 @@ the internal beta Slack channel, ``#realm-sync-private-beta``.
    :hidden:
 
    Functions Overview </functions>
-   Define a Function </functions/define-a-function>
-   Access Function Context </functions/access-function-context>
-   Utility Packages </functions/utilities>
-   JSON & BSON </functions/json-and-bson>
-   Upload External Dependencies </functions/upload-external-dependencies>
-   Import External Dependencies </functions/import-external-dependencies>
 
 .. toctree::
    :titlesonly:
@@ -108,24 +122,16 @@ the internal beta Slack channel, ``#realm-sync-private-beta``.
    Triggers Overview </triggers>
    Trigger Snippets </triggers/trigger-snippets>
    Send Trigger Events to AWS EventBridge </triggers/eventbridge>
+   CRON Expressions </triggers/cron-expressions>
 
 .. toctree::
    :titlesonly:
-   :caption: Services
+   :caption: Third-Party Services
    :hidden:
 
-   Services Overview </services>
-   Configure External Services </services/configure>
-   HTTP Service </services/http>
-   Twilio Service </services/twilio>
-   AWS Service </services/aws>
-   GitHub Service </services/github>
-   Webhook Requests & Responses </services/webhook-requests-and-responses>
-   Send Mobile Push Notifications </services/send-mobile-push-notifications>
-   Push Notifications </services/push-notifications>
-   AWS S3 Service Snippets </services/snippets/s3>
-   GitHub Service Snippets </services/snippets/github>
+   3rd Party Services Overview </services>
    Call a Service Action </services/call-a-service-action>
+   Webhook Requests & Responses </services/webhook-requests-and-responses>
 
 .. toctree::
    :titlesonly:
@@ -133,30 +139,14 @@ the internal beta Slack channel, ``#realm-sync-private-beta``.
    :hidden:
 
    Overview </hosting>
-   Configure File Metadata </hosting/configure-file-metadata>
    Enable Hosting </hosting/enable-hosting>
+   Configure File Metadata </hosting/configure-file-metadata>
    File Metadata Attributes </hosting/file-metadata-attributes>
    Flush the CDN Cache </hosting/flush-the-cdn-cache>
    Host a Single-Page Application </hosting/host-a-single-page-application>
    Upload Content to Realm </hosting/upload-content-to-realm>
    Use a Custom 404 Page </hosting/use-a-custom-404-page>
    Use a Custom Domain Name </hosting/use-a-custom-domain-name>
-
-.. toctree::
-   :titlesonly:
-   :caption: Application Management
-   :hidden:
-
-   Application Deployment  </deploy>
-   Deploy from the Realm UI </deploy/deploy-ui>
-   Deploy Automatically with GitHub </deploy/deploy-automatically-with-github>
-   Deploy with the Realm CLI </deploy/deploy-cli>
-   Create a Realm App with Realm CLI </deploy/create-with-cli>
-   Export an Existing Realm Application </deploy/export-realm-app>
-   Application Configuration Files </deploy/application-configuration-files>
-   Deployment Models & Regions </admin/deployment-models-and-regions>
-   MongoDB Cloud Users </admin/users-and-groups>
-   Logs </logs>
 
 .. toctree::
    :titlesonly:
@@ -170,19 +160,51 @@ the internal beta Slack channel, ``#realm-sync-private-beta``.
 
 .. toctree::
    :titlesonly:
+   :caption: Application Deployment
+   :hidden:
+
+   Deployment Overview </deploy>
+
+.. toctree::
+   :titlesonly:
+   :caption: Logs
+   :hidden:
+
+   Logs Overview </logs>
+   Access Logs with the Admin API </logs/api>
+   Authentication Logs </logs/authentication>
+   Change Stream Logs </logs/changestream>
+   Function Logs </logs/function>
+   Service Logs </logs/service>
+   Trigger Logs </logs/trigger>
+   Schema Logs </logs/schema>
+   Sync Logs </logs/sync>
+
+Clients
+-------
+
+To integrate {+service+} into your front-end clients, visit the
+documentation for your platform, framework, and language of choice:
+
+- :doc:`Android SDK </android>` for Kotlin and Java
+- :doc:`iOS SDK </ios>` for Swift and Objective-C
+- :doc:`Node SDK </node>` for TypeScript and JavaScript
+- :doc:`React Native SDK </react-native>` for TypeScript and JavaScript
+- :doc:`Web SDK </web>` for TypeScript and JavaScript
+
+.. toctree::
+   :titlesonly:
    :caption: Android SDK
    :hidden:
 
-   Android Client SDK </android>
-   Install Realm for Android </android/install>
+   Android SDK </android>
 
 .. toctree::
    :titlesonly:
    :caption: iOS SDK
    :hidden:
 
-   iOS Client SDK </ios>
-   Install Realm for iOS, macOS, tvOS, and watchOS </ios/install>
+   iOS SDK </ios>
 
 .. toctree::
    :titlesonly:
@@ -190,15 +212,6 @@ the internal beta Slack channel, ``#realm-sync-private-beta``.
    :hidden:
 
    Node.js SDK </node>
-   Install Realm for Node.js </node/install>
-
-.. toctree::
-   :titlesonly:
-   :caption: .NET SDK
-   :hidden:
-
-   .NET SDK </dotnet>
-   Install Realm for C# </dotnet/install>
 
 .. toctree::
    :titlesonly:
@@ -206,14 +219,32 @@ the internal beta Slack channel, ``#realm-sync-private-beta``.
    :hidden:
 
    React Native SDK </react-native>
-   Install Realm for React Native </react-native/install>
 
 .. toctree::
    :titlesonly:
-   :caption: Browser SDK
+   :caption: Web SDK
    :hidden:
 
-   Browser SDK </browser>
+   Web SDK </web>
+
+Billing & Reference
+-------------------
+
+{+service+} has a free tier. All usage below the free tier thresholds in
+a given month is not billed, so you can get started with {+service+} at
+no cost. To see how billing works in {+service+}, see :doc:`Billing
+</billing>`.
+
+The reference section contains all additional detailed information:
+
+- :doc:`Glossary </get-started/glossary>`
+- :doc:`Realm Administration API </admin/api/v3>`
+- :doc:`Realm CLI Reference </deploy/realm-cli-reference>`
+- :doc:`Expression Variables </services/expression-variables>`
+- :doc:`JSON Expressions </services/json-expressions>`
+- :doc:`Application Configuration Files </deploy/application-configuration-files>`
+- :doc:`MongoDB Cloud Users </admin/users-and-groups>`
+- :doc:`Known Issues & Workarounds </reference/issues-and-workarounds>`
 
 .. toctree::
    :titlesonly:
@@ -221,9 +252,38 @@ the internal beta Slack channel, ``#realm-sync-private-beta``.
    :hidden:
 
    Glossary </get-started/glossary>
-   Function Context Reference </functions/context>
-   Realm Administration API </admin/api/v3.txt>
+   Billing </billing>
+   Deployment Models & Regions </admin/deployment-models-and-regions>
+   Realm Administration API </admin/api/v3>
+   Realm CLI Authenticate With API Token </reference/cli-auth-with-api-token>
    Realm CLI Reference </deploy/realm-cli-reference>
-   CRON Expressions </triggers/cron-expressions>
    Expression Variables </services/expression-variables>
    JSON Expressions </services/json-expressions>
+   Application Configuration Files </deploy/application-configuration-files>
+   MongoDB Cloud Users </admin/users-and-groups>
+   Known Issues & Workarounds </reference/issues-and-workarounds>
+
+Stitch Documentation (Legacy)
+-----------------------------
+
+You can find the deprecated MongoDB Stitch documentation at
+http://stitch-docs-old.s3-website-us-east-1.amazonaws.com/.
+
+.. toctree::
+   :titlesonly:
+   :caption: Stitch (Legacy)
+   :hidden:
+
+   (Legacy) Stitch Documentation <http://stitch-docs-old.s3-website-us-east-1.amazonaws.com/>
+   (Legacy) Stitch JavaScript Browser SDK <http://stitch-sdks.s3-website-us-east-1.amazonaws.com/stitch-sdks/js/4/index.html>
+   (Legacy) Stitch Java/Android SDK <http://stitch-sdks.s3-website-us-east-1.amazonaws.com/stitch-sdks/java/4/overview-summary.html>
+   (Legacy) Stitch Swift/iOS SDK <http://stitch-sdks.s3-website-us-east-1.amazonaws.com/stitch-sdks/swift/6/>
+   (Legacy) Stitch React Native SDK <http://stitch-sdks.s3-website-us-east-1.amazonaws.com/stitch-sdks/js-react-native/4/index.html>
+   (Legacy) Stitch JavaScript Server SDK <http://stitch-sdks.s3-website-us-east-1.amazonaws.com/stitch-sdks/js-server/4/index.html>
+
+Realm Database Version 6 Documentation
+--------------------------------------
+
+{+service+} uses {+client-database+} version 10 and above. The
+documentation for earlier versions of {+client-database+} can be found
+on the `Realm.io documentation site <https://realm.io/docs>`_.

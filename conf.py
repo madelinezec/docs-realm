@@ -36,8 +36,9 @@ extensions = [
     'sphinx_openapi',
     'tabs',
     'tab-content',
-    'stitch-builders',
+    'realm-builders',
     'icon',
+    'guides'
 ]
 
 templates_path = ['.templates']
@@ -95,18 +96,23 @@ source_constants = {
 
 extlinks = {
     # MongoDB Docs Sites
+    'admin-api-endpoint': ('https://docs.mongodb.com/realm/admin/api/v3/#%s', ''), # sphinx_openapi doesn't support endpoint refs, so we have to use an extlink instead
     'manual': ('http://docs.mongodb.org/manual%s', ''),
     'atlas': ('https://docs.atlas.mongodb.com%s',''),
-    'fb-dev-docs': ('https://developers.facebook.com/docs/%s', ''),
+    'facebook': ('https://developers.facebook.com/%s', ''),
     'mms-docs': ('https://docs.cloud.mongodb.com%s', ''),
     'mms-home': ('https://cloud.mongodb.com%s', ''),
     'guides': ('https://docs.mongodb.com/guides%s', ''),
+    'java-sdk': ('https://docs.mongodb.com/realm-sdks/android/10.0.0-beta.4/javadoc/%s', ''),
+    'kotlin-sdk': ('https://docs.mongodb.com/realm-sdks/android/10.0.0-beta.4/kotlin-extensions/%s', ''),
+    'swift-sdk': ('https://docs.mongodb.com/realm-sdks/swift/10.0.0-beta.3/%s', ''),
+    'objc-sdk': ('https://docs.mongodb.com/realm-sdks/objc/10.0.0-beta.3/%s', ''),
+    'js-sdk': ('https://docs.mongodb.com/realm-sdks/js/10.0.0-beta.9/%s', ''),
     # True External Links
     'android': ('https://developer.android.com/reference/%s', ''),
-    'android-sdk': ('https://docs.mongodb.com/stitch-sdks/java/4/%s', ''),
     'android-dev': ('https://developer.android.com/%s', ''),
-    'apollo-docs': ('https://www.apollographql.com/docs/%s', ''),
-    'apple-dev': ('https://developer.apple.com/documentation/%s', ''),
+    'apollo': ('https://www.apollographql.com/%s', ''),
+    'apple': ('https://developer.apple.com/%s', ''),
     'aws-docs': ('https://docs.aws.amazon.com/%s', ''),
     'aws-go': ('https://docs.aws.amazon.com/sdk-for-go/api/service/%s', ''),
     'aws-iam': ('https://docs.aws.amazon.com/IAM/latest/%s', ''),
@@ -115,18 +121,20 @@ extlinks = {
     'gcp': ('https://cloud.google.com/%s', ''),
     'github': ('https://github.com/%s', ''),
     'github-dev': ('https://developer.github.com/%s', ''),
-    'google-dev': ('https://developers.google.com/%s', ''),
+    'google': ('https://developers.google.com/%s', ''),
     'graphql': ('https://graphql.org/%s', ''),
-    'ios-sdk': ('https://docs.mongodb.com/stitch-sdks/swift/6/%s', ''),
-    'js-sdk': ('https://docs.mongodb.com/stitch-sdks/js/4/%s', ''),
     'jwt-io': ('https://jwt.io/%s', ''),
-    'nodejs': ('https://nodejs.org/api/%s', ''),
+    'nodejs': ('https://nodejs.org/%s', ''),
     'npm': ('https://www.npmjs.com/%s', ''),
     'mdn': ('https://developer.mozilla.org/en-US/docs/%s', ''),
+    'reactjs': ('https://reactjs.org/%s', ''),
+    'rubygems': ('https://rubygems.org/%s', ''),
     'twilio': ('https://www.twilio.com/%s', ''),
     'wikipedia': ('https://en.wikipedia.org/wiki/%s', ''),
     'aws-docs': ('https://docs.aws.amazon.com/%s', ''),
     'fcm': ('https://firebase.google.com/docs/%s', ''),
+    'typescript': ('https://www.typescriptlang.org/%s', ''),
+    'node-driver': ('https://mongodb.github.io/node-mongodb-native/3.6/api/%s', '')
 }
 
 intersphinx_mapping = {}

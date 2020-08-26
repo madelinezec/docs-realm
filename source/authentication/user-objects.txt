@@ -26,7 +26,9 @@ objects in the following ways:
 - In :doc:`rule expressions </services/json-expressions>` with the
   :json-expansion:`%%user` expansion.
 
-- In client applications with the RealmAuth interface
+- In :ref:`Android <android-authenticate>`, :ref:`iOS
+  <ios-authenticate>`, :ref:`Node <node-authenticate>`, and :ref:`React
+  Native <react-native-authenticate>` client applications.
 
 Schema
 ------
@@ -39,7 +41,7 @@ User objects have the following form:
      "id": "<Unique User ID>",
      "type": "<User Type>",
      "data": {
-       "<Metdata Field>": <Value>,
+       "<Metadata Field>": <Value>,
        ...
      },
      "custom_data": {
@@ -51,7 +53,7 @@ User objects have the following form:
          "id": <Unique Identity ID>,
          "provider_type": "<Authentication Provider>",
          "data": {
-           "<Metdata Field>": <Value>,
+           "<Metadata Field>": <Value>,
            ...
          }
        }
@@ -64,7 +66,7 @@ User objects have the following form:
 
    In general, {+service+} creates a user object for a given user
    the first time that they authenticate. If you create a
-   test :doc:`Email/Password </authentication/email-password>`
+   test :doc:`Email/Password </users/create>`
    user through the {+ui+}, {+service-short+} creates that user's user
    object immediately.
 

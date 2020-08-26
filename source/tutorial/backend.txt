@@ -1,0 +1,63 @@
+.. _backend-tutorial:
+
+===============================================
+Write a GitHub Issue Tracker with MongoDB Realm
+===============================================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 2
+   :class: singlecol
+
+
+Overview
+--------
+
+In this tutorial, you will build a cloud application in order to track
+issues created on GitHub repos using MongoDB Realm. This app will: 
+
+- Send an automatic response, with a greeting and helpful links, to all new issues created on your GitHub repo.
+- Record all new issues created on your GitHub repo to a `{+atlas+} <https://www.mongodb.com/cloud/atlas?tck=docs_realm>`_ cluster.  
+- Send you a weekly summary of all the new issues created.
+
+This tutorial should take around 30 minutes.
+
+Outcome
+-------
+
+You will learn how to:
+
+- Execute serverless application logic with :doc:`MongoDB Realm Functions </functions>`.
+- Respond to database and scheduled :doc:`triggers </triggers>`.
+- Save and use static data, such as API keys, using :doc:`values and secrets </values-and-secrets>`.
+- Use the GitHub API within your MongoDB Realm app.
+- View incoming requests and application events using :doc:`MongoDB Realm Application Logs </logs>`.
+
+
+Prerequisites
+-------------
+
+- :doc:`Create a {+app+} </procedures/create-realm-app>`. If you have completed the task tracker tutorial, you can use the same backend {+app+}.
+- (Recommended) Create a :github:`GitHub repository <new>`.
+
+Procedure
+---------
+
+.. admonition:: Link a MongoDB Atlas Cluster
+   :class: note
+   
+   This tutorial requires a :doc:`linked Atlas cluster
+   </mongodb/link-a-cluster>` and a GitHub repository.
+
+.. include:: /includes/steps/tutorial-backend.rst
+
+
+
+Summary
+---------
+- MongoDB Realm Functions allow you to execute server-side code for your application and can be called from other applications or other MongoDB Realm Functions.
+- The MongoDB HTTP Service allows you to communicate with any other server through the HTTP protocol.
+- MongoDB Realm Triggers allow you to execute server-side code in response to a database event or pre-defined schedule.

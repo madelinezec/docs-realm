@@ -49,7 +49,7 @@ Glossary
       availability allows.
 
    {+service-short+} client
-      Anything that interacts with a :term:`{+app+}` using the
+      Anything that interacts with a :term:`{+app+}` using a
       :term:`{+service-short+} SDK`. Examples include phone apps, IoT devices,
       and server applications.
 
@@ -59,7 +59,10 @@ Glossary
       :term:`{+client-database+}`.
 
    {+app+}
-      An instance of the :term:`{+service+}` Backend-as-a-Service.
+      An instance of the :term:`{+service+}` Backend-as-a-Service that
+      you can control from the {+ui+} and interact with from SDKs. It is
+      the central, server-side configuration that functions as the
+      backend for your application. 
 
    {+client-database+}
       An :term:`ACID`-compliant offline-first object database for mobile
@@ -72,31 +75,29 @@ Glossary
       :term:`synced {+atlas+} cluster <synced cluster>`.
    
    {+service-short+} object
-      An instance of a {+service-short+} type. An object that you can
-      store in a :term:`{+realm+}` and synchronized with a
-      :term:`synced {+atlas+} cluster <synced cluster>` using
-      :term:`{+sync+}`.
+      An instance of a :term:`{+service-short+} object type`. An object that you
+      can store in a :term:`{+realm+}` and :term:`sync <{+sync+}>` with a
+      :term:`synced {+atlas+} cluster <synced cluster>`.
 
-   {+service-short+} type
+   {+service-short+} object type
       A declaration of an object structure that can be stored and
       synchronized using :term:`{+service+}`. This includes primitive
       fields, embedded lists, and object relations. Collectively referred to
       as the :term:`{+service-short+} data model`. You can customize
       {+service-short+} types for your {+app+} in two different ways:
       by altering or creating {+frontend-schema+} definitions in the
-      {+service-short+} SDK with :term:`developer mode` enabled in your
+      {+service-short+} SDK with :term:`development mode` enabled in your
       {+app+} or by creating or editing a
       :ref:`JSON schema <mongodb-schemas>` assigned to a collection in
       the {+ui+} or {+cli-bin+}, which directly edits the {+app+}'s
       :term:`{+backend-schema+}`.
 
-   developer mode
-      A method of editing a :term:`{+app+}'s <{+app+}>`
-      :term:`data model <{+service-short+} data model>` that converts
-      :term:`{+frontend-schema+}` :term:`type <{+service-short+} type>`
-      declarations into :term:`{+backend-schema+}s <{+backend-schema+}>`
-      for {+atlas+} collections with :ref:`JSON schema <mongodb-schemas>`.
-      Enables sync before a {+backend-schema+} has been defined.
+   development mode
+      A toggle that, when enabled, disables :term:`{+backend-schema+}`
+      validation and automatically updates your {+backend-schema+} to match the
+      :term:`{+frontend-schema+}` used by synced client applications. As the
+      name suggests, this mode is insecure and should not be enabled for
+      production use.
 
    GraphQL
       Open-source data query and manipulation language for APIs. {+service+}
@@ -135,8 +136,8 @@ Glossary
    event loop
       A design pattern in which a central loop waits
       for signals from a UI or data source before updating underlying
-      data structures. On iOS, known as a :apple-dev:`run loop
-      <foundation/runloop>`. On Android, known as a :android-dev:`Looper
+      data structures. On iOS, known as a :apple:`run loop
+      <documentation/foundation/runloop>`. On Android, known as a :android-dev:`Looper
       <reference/android/os/Looper>`. Also known as the **main loop** or
       **main event loop** on some platforms.
 
@@ -166,14 +167,14 @@ Glossary
       A principle upon which :term:`{+service+}` is built. While traditional
       ORMs copy data from the database into native-language objects,
       :term:`{+service-short+} objects<{+service-short+} object>` read and write data using
-      :wikipedia:`memory mapping </Memory-mapped_file>` to read and
+      :wikipedia:`memory mapping <Memory-mapped_file>` to read and
       write data directly to and from the database via shallow object
       wrappers.
 
    ACID
       An acronym that expands to "Atomicity, Consistency, Isolation, and
       Durability". {+service+} is :term:`ACID-compliant <ACID compliance>`. See
-      :wikipedia:`the Wikipedia entry for ACID </ACID>` for more
+      :wikipedia:`the Wikipedia entry for ACID <ACID>` for more
       information.
 
    ACID compliance
@@ -227,7 +228,7 @@ Glossary
 
    scheduled trigger
       Call a :term:`{+service-short+} Function` based on a schedule that you
-      define using a :ref:`CRON expresssion <CRON-expresssions>`.
+      define using a :ref:`CRON expression <CRON-expressions>`.
    
    linked cluster
       A :term:`{+atlas+}` database cluster that is associated with
@@ -256,20 +257,40 @@ Glossary
 
    system function
       A :term:`{+service-short+} Function` that runs as the :term:`system user`.
-   
+
    system user
       A user that communicates directly with the :term:`linked cluster`
       and other services, bypassing collection :term:`{+service-short+} Rules` and
       :term:`Schema Validation`. This user bypasses most restrictions on
       the
       :ref:`CRUD & Aggregation APIs <mongodb-crud-and-aggregation-apis>`.
-   
+
    custom user data
       A mapped :term:`MongoDB document` that stores arbitrary
       information about a given {+service+} user. For example, you can store
       a user's preferred language, local timezone, or an ID for an
       external service.
-   
+
+   custom user data collection
+      The collection where {+service+} stores :term:`MongoDB documents
+      <MongoDB document>` corresponding to :term:`custom user data`.
+
+   custom user data database
+      The database that contains the :term:`custom user data collection`.
+
+   custom user data cluster
+      The :term:`linked MongoDB Atlas cluster <linked cluster>` that
+      that contains the :term:`custom user data database`.
+
+   user ID field
+      The field of :term:`MongoDB documents <MongoDB document>` in the
+      :term:`custom user data collection` whose value is a user ID that
+      maps custom user data documents to {+service+} users.
+
+   user ID
+      A unique BSON ObjectID that identifies a single user in a single
+      {+app+}.
+
    external dependencies
       One or more JavaScript modules from ``npm`` that you have uploaded
       to your :term:`{+app+}`. You can import and use external
@@ -356,14 +377,10 @@ Glossary
       enforced in your {+app+}.
 
    {+frontend-schema+}
-      The structure that defines the fields of and relationships between
-      all :term:`{+service-short+} objects <{+service-short+} object>` that you can read or write
-      into a client-local :term:`{+realm+} instance`. Defined natively in
-      the code of your client application.
-
-   {+service-short+} SDK
-      A library used by :term:`{+service-short+} clients <{+service-short+} client>`
-      to connect to :term:`{+client-database+}` and :term:`{+backend+}`.
+      The structure that defines the fields of and relationships between all
+      :term:`{+service-short+} objects <{+service-short+} object>` that you can
+      read or write into a client-local :term:`{+realm+} instance`. Defined
+      natively in the code of your client application.
 
    {+service-short+} data model
       The collection of :term:`{+service-short+} object <{+service-short+} object>`
@@ -376,3 +393,38 @@ Glossary
       The :term:`{+client-database+}` system that allows you
       to watch for and react to changes in your data
       independently of the writes that caused the changes.
+
+   Application ID
+      A unique identifier for your MongoDB Realm application. Sometimes
+      called by the shorthand "App ID". The App ID is used to connect
+      to your MongoDB Realm application via the client SDKs.
+
+   Client Reset
+      When using :doc:`{+sync+} </sync>`, a **client reset** is a serious error
+      recovery task that your client app must perform if the server is restored
+      to an older schema version than the version on the client.
+      
+      For more information on how to perform a client reset, see the client
+      guide for your SDK:
+      
+      - :ref:`Android <android-client-reset>`
+      - :ref:`iOS, macOS, tvOS, and watchOS <ios-client-reset>`
+      - :ref:`Node.js <node-client-reset>`
+      - :ref:`React Native <react-native-client-reset>`
+
+   embedded object
+      An embedded object is a special type of :term:`<{+service-short+} object>`
+      that models complex data about a specific object. Embedded objects are
+      similar to :term:`relationships <relationship>`, but they provide
+      additional constraints and map more naturally to the denormalized
+      :manual:`MongoDB document model </core/data-modeling-introduction/>`.
+      
+      For more information on how to define and work with embedded objects, see
+      the client guide for your SDK:
+      
+      - :ref:`Node.js <node-embedded-objects>`
+      - :ref:`React Native <react-native-embedded-objects>`
+
+   relationship
+     A relationship is an object property that references another object rather
+     than a scalar or embedded object.

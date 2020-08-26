@@ -13,16 +13,10 @@ Deploy Automatically with GitHub
 Overview
 --------
 
-You can deploy changes to your application by directly
-modifying the underlying :ref:`configuration files
-<config-files>` in an :ref:`application directory
-<app-directory>` that you host on :github:`GitHub <>`. Realm
-uses Git to version control your application and can
-automatically deploy new versions based on the latest commit
-in a GitHub repository that you specify. You can clone the
-GitHub repository to your computer and then use standard Git
-commands to pull down the latest versions and push new
-versions. This guide assumes that you are using the Git CLI.
+You can configure a Realm app to automatically deploy whenever you push updated
+:ref:`configuration files <config-files>` to a :github:`GitHub <>` repository.
+You can clone the GitHub repository to your computer and then use standard Git
+commands to pull down the latest versions and deploy new changes.
 
 Prerequisites
 -------------
@@ -37,11 +31,11 @@ Prerequisites
   installed, see the official guide for `Installing Git
   <https://git-scm.com/book/en/v1/Getting-Started-Installing-Git>`_.
 
-- A MongoDB Atlas :atlas:`Programmatic API Key
-  </configure-api-access/#programmatic-api-keys>` to authenticate and
-  authorize access to your app's underlying Git repo. If you have not
-  yet generated a programmatic API key for your Atlas organization, do
-  so now.
+- A `{+atlas+} <https://www.mongodb.com/cloud/atlas?tck=docs_realm>`_ 
+  :atlas:`Programmatic API Key </configure-api-access/#programmatic-api-keys>` 
+  to authenticate and authorize access to your app's underlying Git
+  repo. If you have not yet generated a programmatic API key for your
+  Atlas organization, do so now.
 
 Procedure
 ---------
@@ -55,9 +49,8 @@ Summary
   hosted on GitHub.
 
 - When Automatic GitHub Deployment is enabled, {+service+} immediately
-  deploys the latest commit from the ``master`` branch. To deploy,
-  commit your changes locally, then push them to the ``master`` branch
-  of your repo on GitHub.
+  deploys the latest commit. To deploy, commit your changes locally, then push
+  them to your repo on GitHub.
 
 - {+service+} keeps track of your :ref:`Deployment History
   <deployment-history>`.

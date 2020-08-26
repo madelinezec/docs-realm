@@ -37,8 +37,8 @@ function.
 
 .. note::
 
-   Database Triggers are only available for {+atlas+} clusters
-   that are running MongoDB version 3.6 or newer.
+   Database Triggers are only available for `{+atlas+} <https://www.mongodb.com/cloud/atlas?tck=docs_realm>`_ 
+   clusters that are running MongoDB version 3.6 or newer.
 
 .. _create-a-database-trigger:
 
@@ -64,7 +64,13 @@ Create a Database Trigger
             for the Trigger and click :guilabel:`Save` at the bottom of
             the page.
 
-         .. figure:: /images/database-trigger-config.png
+         .. cssclass:: bordered-figure
+         .. figure:: /images/db-trigger-example-config-1.png
+            :width: 750px
+            :lightbox:
+         
+         .. cssclass:: bordered-figure
+         .. figure:: /images/db-trigger-example-config-2.png
             :width: 750px
             :lightbox:
 

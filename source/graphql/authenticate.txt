@@ -31,7 +31,7 @@ access token <refresh-client-api-access-token>` after it expires.
    .. code-block:: shell
       :emphasize-lines: 2
    
-      curl --location --request POST 'https://stitch.mongodb.com/api/client/v2.0/app/<yourappid-abcde>/graphql' \
+      curl --location --request POST 'https://realm.mongodb.com/api/client/v2.0/app/<yourappid-abcde>/graphql' \
         --header 'Authorization: Bearer <Access Token>' \
         --header 'Content-Type: application/json' \
         --data-raw '{"query":"query AllMovies {\n  movies {\n    title\n    year\n  }\n}"}'
@@ -83,7 +83,7 @@ authentication endpoints accept valid user credentials in the body of a
          .. code-block:: shell
             :emphasize-lines: 4
          
-            curl --location --request POST 'https://realm.mongodb.com/api/client/v2.0/app/myapp-abcde/auth/providers/oauth2-google/login' \
+            curl --location --request POST 'https://realm.mongodb.com/api/client/v2.0/app/myapp-abcde/auth/providers/api-key/login' \
               --header 'Content-Type: application/json' \
               --data-raw '{
                 "key": "hScMWZyOKnjQMbfDPMJ1qHgtdGT2raQXdVDDvlC2SzKEBKlHKV8FK9SPCSTnODPg"
