@@ -12,6 +12,8 @@ Get Started with Sync
    :depth: 2
    :class: singlecol
 
+.. include:: /includes/sync-beta-note.rst
+
 Overview
 --------
 
@@ -51,3 +53,10 @@ Summary
    Configure Your Data Model </sync/configure-your-data-model>
    Define Sync Rules  </sync/rules>
    Enable Development Mode  </sync/enable-development-mode>
+
+.. toctree::
+   :titlesonly:
+   :caption: Reference
+
+   Sync Permissions </sync/permissions>
+   Realm Sync Protocol </sync/protocol>

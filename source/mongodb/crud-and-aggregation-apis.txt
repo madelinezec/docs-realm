@@ -415,8 +415,9 @@ Bitwise Update Operator Availability
 Bulk Write Operations
 ~~~~~~~~~~~~~~~~~~~~~
 
-{+service+} supports :manual:`bulk write operations
-</core/bulk-write-operations>` using the same API as the MongoDB Node.js driver.
+{+service+} supports bulk write operations using the same API as the MongoDB Node.js driver.
+
+.. note:: {+service+} does not support the ``collection.bulkWrite()`` method.
 
 Ordered Bulk Write Operation Availability
 +++++++++++++++++++++++++++++++++++++++++
@@ -499,7 +500,7 @@ Query Option Availability
    :header-rows: 1
    :widths: 25 10 10
 
-   * - Modifier
+   * - Option
      - User Context
      - System Context
 
@@ -520,6 +521,9 @@ Query Option Availability
 Aggregation
 -----------
 
+Aggregation Pipeline Stage Availability
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 {+service+} does not support the following :manual:`aggregation pipeline
 stages </reference/operator/aggregation-pipeline/>` when you :doc:`run
 an aggregation pipeline </mongodb/run-aggregation-pipelines>` in the
@@ -527,15 +531,12 @@ context of an :ref:`application user <user-accounts>`. All aggregation
 pipeline stages are available to the system user except ``$indexStats``
 and ``$currentOp``.
 
-Aggregation Pipeline Stage Availability
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 .. cssclass:: config-table
 .. list-table::
    :header-rows: 1
    :widths: 25 10 10
 
-   * - Modifier
+   * - Stage
      - User Context
      - System Context
 
@@ -575,12 +576,41 @@ Aggregation Pipeline Stage Availability
      - No
      - Yes
 
+   * - :atlas:`$search </reference/atlas-search/query-syntax/>`
+       
+       .. include:: /includes/note-atlas-search-rules.rst
+     - Yes
+     - Yes
+
    * - :manual:`$text </reference/operator/aggregation/text/>`
      - No
      - Yes
 
    * - :manual:`$unionWith </reference/operator/aggregation/unionWith/>`
      - Yes
+     - Yes
+
+Aggregation Pipeline Operator Availability
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+{+service+} supports all :manual:`aggregation pipeline operators
+</reference/operator/aggregation/>` when you :doc:`run an aggregation pipeline
+</mongodb/run-aggregation-pipelines>` in the :ref:`system user
+<system-functions>` context. {+service-short+} supports all pipeline operators
+in an :ref:`application user <user-accounts>` context with the following
+exceptions:
+
+.. cssclass:: config-table
+.. list-table::
+   :header-rows: 1
+   :widths: 25 10 10
+
+   * - Operator
+     - User Context
+     - System Context
+
+   * - :manual:`$function </reference/operator/aggregation/function/>`
+     - No
      - Yes
 
 .. _mongodb-crud-and-aggregation-apis-database-commands:

@@ -95,12 +95,13 @@ types of request:
 - **Webhook Requests**, such as when an external service sends a notification
   event or interaction payload to an incoming webhook URL.
 
-- **Sync Operations**, such as when a client application modifies a synced
-  {+realm+} or when {+service-short+} sends a sync changeset to a connected sync
-  client. Each sync changeset that {+service-short+} sends to or receives from a
-  given client is considered a separate request. Sync conflict resolutions are
-  considered a separate request from the write operations that caused the
-  conflict.
+- **Sync Operations**, such as when a sync client uploads a :ref:`changeset
+  <changeset>`, when {+service-short+} :ref:`resolves a conflict
+  <operational-transformation>` in an uploaded changeset, or when
+  {+service-short+} sends changesets to a connected sync client.
+  
+  For more information on sync operations, see :ref:`Realm Sync Protocol
+  <sync-protocol>`.
 
 **Price:** $2.00 / 1,000,000 requests ($0.000002 / request)
 
@@ -179,12 +180,13 @@ Realm Sync
 ~~~~~~~~~~
 
 {+service-short+} counts the total amount of time in which a client application
-user is actively syncing data. Sync is billed at a set rate for each millisecond
-of sync runtime per user.
+user has an active connection to the sync server even if they are not 
+transferring data at the time. Sync is billed at a set rate for each 
+millisecond of sync runtime per user.
 
-**Price:** $0.08 / 1,000,000 runtime minutes ($0.00000008 / ms)
+**Price:** $0.08 / 1,000,000 runtime minutes ($0.00000008 / min)
 
-**Formula:** (# Active Users) * (Sync time (ms / user)) * ($0.00000008 / ms)
+**Formula:** (# Active Users) * (Sync time (min / user)) * ($0.00000008 / min)
 
 **Free Tier Threshold:** 1,000,000 :ref:`requests <billing-requests>` **or** 500
 hours of :ref:`compute <billing-compute>` **or** 10,000 hours of :ref:`sync
