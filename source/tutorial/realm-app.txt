@@ -206,7 +206,7 @@ that you can use to administrate your new Atlas project:
 #. Copy your Private API Key and save it somewhere; after leaving this
    page, you will no longer be able to view it via the Realm UI.
 
-#. Click the :guilabel:`Add Whitelist Entry` button.
+#. Click the :guilabel:`Add Access List Entry` button.
 
 #. Click :guilabel:`Use Current IP Address`.
 
@@ -260,7 +260,7 @@ line tool:
 
    .. code-block:: console
 
-      git clone git@github.com:mongodb-university/realm-tutorial-backend.git
+      git clone https://github.com/mongodb-university/realm-tutorial-backend.git
 
    You should see output like the following:
 
@@ -279,12 +279,12 @@ line tool:
    the contents of that directory to create your very own Task Tracker
    {+app+} backend with the Realm CLI.
 
-#. Navigate to the ``tasktracker`` directory in the
+#. Navigate into the root directory of the
    ``realm-tutorial-backend`` project:
 
    .. code-block:: console
 
-      cd realm-tutorial-backend/tasktracker/
+      cd realm-tutorial-backend
 
 #. Run the ``import`` command of ``realm-cli`` to create your
    app.

@@ -1,2 +1,2 @@
-User emailUser = await app.LogInAsync(
-    Credentials.EmailPassword("caleb@mongodb.com", "shhhItsASektrit!"));
+var user = await app.LogInAsync(
+    Credentials.EmailPassword("caleb@example.com", "shhhItsASektrit!"));

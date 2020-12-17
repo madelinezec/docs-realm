@@ -149,7 +149,7 @@ API Key
 ~~~~~~~
 
 The :doc:`API key </authentication/api-key>` authentication provider allows
-server processes to access to access your app directly or on behalf of a user.
+server processes to access your app directly or on behalf of a user.
 
 To log in with an API key, create an API Key credential with a server or user
 API key and pass it to ``App.logIn()``:
@@ -333,11 +333,9 @@ account. You can use the :ref:`built-in authentication flow
 <web-facebook-builtin>` or :ref:`authenticate with the Facebook SDK
 <web-facebook-auth-token>`.
 
-.. admonition:: Enable the Facebook Auth Provider
-   :class: note
-   
-   To authenticate a Facebook user, you must configure the :doc:`Facebook
-   authentication provider </authentication/facebook>`.
+.. include:: /includes/note-enable-facebook-auth.rst
+
+.. include:: /includes/note-facebook-profile-picture-url.rst
 
 .. _web-facebook-builtin:
 
@@ -455,8 +453,7 @@ Google OAuth
 The :doc:`Google </authentication/google>` authentication provider allows you to
 authenticate users through a Google project using their existing Google account.
 
-.. admonition:: Enable the Google Auth Provider
-   :class: note
+.. note:: Enable the Google Auth Provider
    
    To authenticate a Google user, you must configure the :doc:`Google
    authentication provider </authentication/google>`.
@@ -532,11 +529,22 @@ to your app.
              console.log(`Logged in with id: ${user.id}`);
            });
 
-.. admonition:: (Deprecated) Built-In OAuth 2.0 Flow
-   :class: important
+.. important:: Built-In OAuth 2.0 Redirect Limitations for Google
    
-   The Realm Web SDK no longer includes built-in methods to handle the OAuth 2.0
-   process. Instead, use the official Google SDK as described above.
+   The Realm Web SDK includes a built-in process to handle OAuth 2.0 redirect
+   flows. The process opens a new window where the user authorizes your app and
+   then redirects to URL that you provide, which allows you to get an access
+   token and finish logging the user in.
+   
+   Due to changes in OAuth application verification requirements, the built-in
+   process faces limitations when authenticating :ref:`Google
+   <google-authentication>` users. If you use the Google login redirect flow
+   using Realm's redirect flow, a maximum of 100 Google users may authenticate
+   while the app is in development/testing/staging and all users will see an
+   unverified application notification before they authenticate.
+   
+   To avoid these limitations, we advise that you use the official Google SDK to
+   get a user access token as described above.
 
 .. _web-login-apple:
 
@@ -548,8 +556,7 @@ authenticate users through Sign-in With Apple. You can use the :ref:`built-in
 authentication flow <web-apple-builtin>` or :ref:`authenticate with the Apple
 SDK <web-apple-auth-token>`.
 
-.. admonition:: Enable the Apple Auth Provider
-   :class: note
+.. note:: Enable the Apple Auth Provider
    
    To authenticate an Apple user, you must configure the :doc:`Apple
    authentication provider </authentication/apple>`.
