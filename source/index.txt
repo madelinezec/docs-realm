@@ -20,7 +20,6 @@ MongoDB Realm
    Application Deployment </deploy>
    Logs </logs>
    Android SDK </android>
-   iOS SDK </ios>
    .NET SDK (Beta) </dotnet>
    Node.js SDK </node>
    React Native SDK </react-native>
